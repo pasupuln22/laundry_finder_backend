@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import autenticationRoute from './routes/authenticationRoutes.js';
 import bookingsRoute from './routes/bookingsRoutes.js';
+import laundryRoute from './routes/laundryRoutes.js'
+import tipsRoute from './routes/tipsRoutes.js'
 import { db } from './config/dbConfig.js';
 
 dotenv.config();
@@ -31,8 +33,8 @@ app.use(function (req, res, next) {
 
 app.use('/laundry_finder/autenticate', autenticationRoute);
 app.use('/laundry_finder/bookings', bookingsRoute);
-app.use('/laundry_finder/laundry', bookingsRoute);
-
+app.use('/laundry_finder/laundry', laundryRoute);
+app.use('/laundry_finder/tips', tipsRoute);
 const PORT = process.env.PORT || 3001; // Assuming default port is 3001
 app.listen(PORT, () => {
     console.log(`Server connected to port ${PORT}`);
